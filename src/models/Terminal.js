@@ -6,29 +6,30 @@ import Chofer from './Chofer';
 
 const Terminal = sequilize.define('terminal', {
     nombre_terminal: {
-        type: Sequelize.character_varyin(20), 
+        type: Sequelize.STRING(20), 
     }, 
     administrador: {
-        type: Sequelize.character_varyin(20), 
+        type: Sequelize.STRING(20), 
     },
     direccion: {
-        type: Sequelize.character_varyin(20), 
+        type: Sequelize.STRING(20), 
     },
     telefono: {
-        type: Sequelize.character_varyin(20), 
+        type: Sequelize.STRING(20), 
     },
     id: {
-        type: Sequelize.character_varyin(20),
+        type: Sequelize.STRING(10),
         primarykey: true
     },
 }, {
-    timestamps: false
+    timestamps: false,
+    freezeTableName: true
 });
 
-/* Terminal.hasMany(Gestor_buses, {foreignkey: 'id_terminal', sourceKey: 'id'});
-Gestor_buses.belongsTo(Terminal, {foreignkey: 'id_terminal', sourceKey: 'id'});
+ Terminal.hasMany(Gestor_buses, {foreignkey: 'id_terminal'});
+Gestor_buses.belongsTo(Terminal, {foreignkey: 'id_terminal'});
 
-Terminal.hasMany(Chofer, {foreignkey: 'id_terminal', sourceKey: 'id'});
-Chofer.belongsTo(Terminal, {foreignkey: 'id_terminal', sourceKey: 'id'}); */
+Terminal.hasMany(Chofer, {foreignkey: 'id_terminal'});
+Chofer.belongsTo(Terminal, {foreignkey: 'id_terminal'}); 
 
 export default Terminal;

@@ -29,7 +29,7 @@ export async function createBoleto(req, res) {
             nro_asiento: nro_asiento
 
         }, {
-            fields: ['nombre', 'apellido', ' bioseguridad', 'precio', 'id_bus', ' origen', 'destino', 'hrs_salida', 'ubicacion', 'id_buses', 'nro_asiento']
+            fields: ['nombre', 'apellido', 'bioseguridad', 'precio', 'id_bus', 'origen', 'destino', 'hrs_salida','fecha_salida','ubicacion', 'id_buses', 'nro_asiento']
         });
 
         if (newBoleto) {
@@ -46,7 +46,7 @@ export async function createBoleto(req, res) {
     }
 
 }
-/*
+
 export async function getoneBoleto(req, res){
     const { id } = req.params; 
     const boleto = await Boleto.findOne({
@@ -72,17 +72,17 @@ export async function deleteBoleto(req, res){
 
 export async function updateBoleto(req, res){
     const { id } = req.params;
-    const {nombre,apellido,bioseguridad,precio,id_bus, origen, destino, hrs_salida, ubicacion, id_buses, nro_asiento} = req.body;
+    const {nombre, apellido, bioseguridad, precio, id_bus,origen, destino, hrs_salida, fecha_salida, ubicacion, id_buses, nro_asiento} = req.body;
 
-    const Boleto = await Boleto.findAll({
-        attributes: ['nombre', 'apellido', ' bioseguridad', 'precio', 'id_bus', ' origen', 'destino', 'hrs_salida', 'ubicacion', 'id_buses', 'nro_asiento','id'],
+    const boleto = await Boleto.findAll({
+        attributes: ['nombre', 'apellido', 'bioseguridad', 'precio', 'id_bus', 'origen', 'destino', 'hrs_salida', 'fecha_salida','ubicacion','id_buses', 'nro_asiento', 'id'],
         where: {
             id
         }
     });
 
     if(boleto.length > 0){
-        boleto.forEach( async boleto => {
+        boleto.forEach(async boleto => {
             await boleto.update({
                 nombre: nombre,
                 apellido: apellido,
@@ -95,12 +95,13 @@ export async function updateBoleto(req, res){
                 fecha_salida: fecha_salida,
                 ubicacion: ubicacion,
                 id_buses: id_buses,
-                nro_asiento: nro_asiento
-            })
+                nro_asiento: nro_asiento,
+                id: id
+            });
         })
     }
     return res.json({
         message: 'Boleto Actualizado Correctamente',
         data: boleto
     })
-}*/
+}

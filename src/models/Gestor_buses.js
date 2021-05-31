@@ -11,37 +11,38 @@ const Gestor_buses = sequelize.define('gestor_buses', {
         primarykey: true
     },
     tipo_bus: {
-        type: Sequelize.TEXT, 
+        type: Sequelize.STRING(20), 
     },
    nombre_bus: {
-        type: Sequelize.TEXT,
+        type: Sequelize.STRING(20),
     }, 
     fecha: {
         type: Sequelize.DATE
     },
     id_terminal: {
-        type: Sequelize.TEXT, 
+        type: Sequelize.STRING(20), 
     },
    modelo: {
-        type: Sequelize.TEXT,
+        type: Sequelize.STRING(20),
     }, 
     color: {
-        type: Sequelize.TEXT,
+        type: Sequelize.STRING(20),
     },
     capacidad: {
         type: Sequelize.INTEGER,
     },
 }, {
-    timestamps: false
+    timestamps: false,
+    freezeTableName: true,
 });
-/*
-Gestor_buses.hasMany(Bus, {foreignkey: 'id_buses', sourceKey: 'id'});
-Bus.belongsTo(Gestor_buses, {foreignkey: 'id_buses', sourceKey: 'id'});
 
-Gestor_buses.hasMany(Boleto, {foreignkey: 'id_buses', sourceKey: 'id'});
-Boleto.belongsTo(Gestor_buses, {foreignkey: 'id_buses', sourceKey: 'id'});
+Gestor_buses.hasMany(Bus, {foreignkey: 'id_buses'});
+Bus.belongsTo(Gestor_buses, {foreignkey: 'id_buses'});
 
-Gestor_buses.hasMany(Capacidad, {foreignkey: 'id_buses', sourceKey: 'id'});
-Capacidad.belongsTo(Gestor_buses, {foreignkey: 'id_buses', sourceKey: 'id'});
-*/
+Gestor_buses.hasMany(Boleto, {foreignkey:'id_buses'});
+Boleto.belongsTo(Gestor_buses, {foreignkey:'id_buses'});
+
+Gestor_buses.hasMany(Capacidad, {foreignkey:'id_buses'});
+Capacidad.belongsTo(Gestor_buses, {foreignkey:'id_buses'});
+
 export default Gestor_buses;

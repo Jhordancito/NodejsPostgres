@@ -14,7 +14,7 @@ const Factura = sequelize.define('factura', {
     },
 }, {
     timestamps: false,
-    freezeTableName: true,
+    freezeTableName: true
 });
 
 

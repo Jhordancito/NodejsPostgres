@@ -26,13 +26,14 @@ const Bus = sequelize.define('bus', {
     },
 
 }, {
-    timestamps: false
+    timestamps: false,
+    freezeTableName: true
 });
-/*
-Bus.hasMany(Capacidad, {foreignkey: 'id_bus', sourceKey: 'id'});
-Capacidad.belongsTo(Bus, {foreignkey: 'id_bus', sourceKey: 'id'});
 
-Bus.hasMany(Boleto, {foreignkey: 'id_bus', sourceKey: 'id'});
-Boleto.belongsTo(Bus, {foreignkey: 'id_bus', sourceKey: 'id'});
-*/
+Bus.hasMany(Capacidad, {foreignkey: 'id_bus'});
+Capacidad.belongsTo(Bus, {foreignkey: 'id_bus'});
+
+Bus.hasMany(Boleto, {foreignkey: 'id_bus'});
+Boleto.belongsTo(Bus, {foreignkey: 'id_bus'});
+
 export default Bus;

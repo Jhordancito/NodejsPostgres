@@ -22,7 +22,8 @@ const Pasajeros = sequelize.define('pasajeros', {
         type: Sequelize.INTEGER,
     },
 }, {
-    timestamps: false
+    timestamps: false,
+    freezeTableName: true
 });
 
 

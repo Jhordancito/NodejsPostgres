@@ -2,6 +2,10 @@ import Sequelize from 'sequelize';
 import { sequelize } from '../database/database';
 
 const Capacidad = sequelize.define('capacidad', {
+    id: {
+        type: Sequelize.INTEGER,
+        primarykey: true
+    },
     id_bus: {
         type: Sequelize.INTEGER,
     },
@@ -10,13 +14,10 @@ const Capacidad = sequelize.define('capacidad', {
     },
     nro_asiento: {
         type: Sequelize.INTEGER,
-    },
-    id: {
-        type: Sequelize.INTEGER,
-        primarykey: true
-    },
+    }
 }, {
-    timestamps: false
+    timestamps: false,
+    freezeTableName: true
 });
 
 

@@ -9,31 +9,32 @@ const Chofer = sequelize.define('chofer', {
         primarykey: true
     },
     nombre: {
-        type: Sequelize.TEXT, 
+        type: Sequelize.STRING(20), 
     },
     apellido: {
-        type: Sequelize.TEXT,
+        type: Sequelize.STRING(20),
     }, 
     genero: {
-        type: Sequelize.TEXT, 
+        type: Sequelize.STRING(20), 
     },
     direccion: {
-        type: Sequelize.TEXT,
+        type: Sequelize.STRING(20),
     }, 
     tipo_sangre: {
-        type: Sequelize.TEXT,
+        type: Sequelize.STRING(20),
     },
     telefono: {
         type: Sequelize.INTEGER,
     },
     id_terminal: {
-        type: Sequelize.TEXT,
+        type: Sequelize.STRING(20),
     },
 }, {
-    timestamps: false
+    timestamps: false,
+    freezeTableName: true
 });
-/*
+
 Chofer.hasMany(Bus, {foreignkey: 'id_chofer', sourceKey: 'id'});
 Bus.belongsTo(Chofer, {foreignkey: 'id_chofer', sourceKey: 'id'});
-*/
+
 export default Chofer;
