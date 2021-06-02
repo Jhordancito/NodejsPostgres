@@ -5,10 +5,6 @@ import Capacidad from './Capacidad';
 import Boleto from './Boleto';
 
 const Bus = sequelize.define('bus', {
-    id: {
-        type: Sequelize.INTEGER,
-        primarykey: true
-    },
     id_buses: {
         type: Sequelize.INTEGER,
     },
@@ -30,10 +26,10 @@ const Bus = sequelize.define('bus', {
     freezeTableName: true
 });
 
-Bus.hasMany(Capacidad, {foreignkey: 'id_bus'});
-Capacidad.belongsTo(Bus, {foreignkey: 'id_bus'});
+Bus.hasMany(Capacidad, {foreignkey: 'id_bus', sourceKey: 'id'});
+Capacidad.belongsTo(Bus, {foreignkey: 'id_bus', sourceKey: 'id'});
 
-Bus.hasMany(Boleto, {foreignkey: 'id_bus'});
-Boleto.belongsTo(Bus, {foreignkey: 'id_bus'});
+Bus.hasMany(Boleto, {foreignkey: 'id_bus', sourceKey: 'id'});
+Boleto.belongsTo(Bus, {foreignkey: 'id_bus', sourceKey: 'id'});
 
 export default Bus;

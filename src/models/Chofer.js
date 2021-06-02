@@ -4,10 +4,7 @@ import { sequelize } from '../database/database';
 import Bus from './Bus';
 
 const Chofer = sequelize.define('chofer', {
-    id: {
-        type: Sequelize.INTEGER,
-        primarykey: true
-    },
+    
     nombre: {
         type: Sequelize.STRING(20), 
     },

@@ -6,10 +6,6 @@ import Boleto from './Boleto';
 import Capacidad from './Capacidad';
 
 const Gestor_buses = sequelize.define('gestor_buses', {
-    id: {
-        type: Sequelize.INTEGER,
-        primarykey: true
-    },
     tipo_bus: {
         type: Sequelize.STRING(20), 
     },
@@ -36,13 +32,13 @@ const Gestor_buses = sequelize.define('gestor_buses', {
     freezeTableName: true,
 });
 
-Gestor_buses.hasMany(Bus, {foreignkey: 'id_buses'});
-Bus.belongsTo(Gestor_buses, {foreignkey: 'id_buses'});
+Gestor_buses.hasMany(Bus, {foreignkey: 'id_buses', sourceKey: 'id'});
+Bus.belongsTo(Gestor_buses, {foreignkey: 'id_buses', sourceKey: 'id'});
 
-Gestor_buses.hasMany(Boleto, {foreignkey:'id_buses'});
-Boleto.belongsTo(Gestor_buses, {foreignkey:'id_buses'});
+Gestor_buses.hasMany(Boleto, {foreignkey:'id_buses', sourceKey: 'id'});
+Boleto.belongsTo(Gestor_buses, {foreignkey:'id_buses', sourceKey: 'id'});
 
-Gestor_buses.hasMany(Capacidad, {foreignkey:'id_buses'});
-Capacidad.belongsTo(Gestor_buses, {foreignkey:'id_buses'});
+Gestor_buses.hasMany(Capacidad, {foreignkey:'id_buses',  sourceKey: 'id'});
+Capacidad.belongsTo(Gestor_buses, {foreignkey:'id_buses',  sourceKey: 'id'});
 
 export default Gestor_buses;

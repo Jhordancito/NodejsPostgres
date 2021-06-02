@@ -1,5 +1,6 @@
 import Sequelize from 'sequelize';
 
+
 export const sequelize = new Sequelize(
     'bus',
     'postgres',

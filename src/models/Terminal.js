@@ -4,7 +4,7 @@ import { sequelize } from '../database/database';
 import Gestor_buses from './Gestor_buses';
 import Chofer from './Chofer';
 
-const Terminal = sequilize.define('terminal', {
+const Terminal = sequelize.define('terminal', {
     nombre_terminal: {
         type: Sequelize.STRING(20), 
     }, 
@@ -17,19 +17,15 @@ const Terminal = sequilize.define('terminal', {
     telefono: {
         type: Sequelize.STRING(20), 
     },
-    id: {
-        type: Sequelize.STRING(10),
-        primarykey: true
-    },
 }, {
     timestamps: false,
     freezeTableName: true
 });
 
- Terminal.hasMany(Gestor_buses, {foreignkey: 'id_terminal'});
-Gestor_buses.belongsTo(Terminal, {foreignkey: 'id_terminal'});
+Terminal.hasMany(Gestor_buses, {foreignkey: 'id_terminal', sourceKey: 'id'});
+Gestor_buses.belongsTo(Terminal, {foreignkey: 'id_terminal', sourceKey: 'id'});
 
-Terminal.hasMany(Chofer, {foreignkey: 'id_terminal'});
-Chofer.belongsTo(Terminal, {foreignkey: 'id_terminal'}); 
+Terminal.hasMany(Chofer, {foreignkey: 'id_terminal', sourceKey: 'id'});
+Chofer.belongsTo(Terminal, {foreignkey: 'id_terminal', sourceKey: 'id'}); 
 
 export default Terminal;
