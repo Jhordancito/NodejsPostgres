@@ -1,4 +1,4 @@
-import jwt from 'js-tokens';
+import jwt from 'jsonwebtoken';
 
 const verifyToken = (req, res, next) => {
     const token = req.header('auth-token');
@@ -6,7 +6,7 @@ const verifyToken = (req, res, next) => {
 
     try{
         const verificar = jwt.verify(token, process.env.TOKEN_SECRET)
-        req.users = verificar
+        req.user = verificar
         next()
     } catch (error) {
         res.status(400).json({error: 'token no es valido'})

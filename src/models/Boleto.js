@@ -16,8 +16,7 @@ const Boleto = sequelize.define('boleto', {
     fecha_salida: { type: Sequelize.DATE },
     ubicacion:{ type: Sequelize.STRING(20) },
     id_buses: { type: Sequelize.INTEGER},
-    nro_asiento: { type: Sequelize.INTEGER },
-    id: { type: Sequelize.INTEGER,primaryKey: true },
+    nro_asiento: { type: Sequelize.INTEGER }
 }, {
     timestamps: false,
     freezeTableName: true

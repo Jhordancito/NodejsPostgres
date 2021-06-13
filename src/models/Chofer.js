@@ -30,8 +30,8 @@ const Chofer = sequelize.define('chofer', {
     timestamps: false,
     freezeTableName: true
 });
-
+/*
 Chofer.hasMany(Bus, {foreignkey: 'id_chofer', sourceKey: 'id'});
 Bus.belongsTo(Chofer, {foreignkey: 'id_chofer', sourceKey: 'id'});
-
+*/
 export default Chofer;

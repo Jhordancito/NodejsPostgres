@@ -7,7 +7,7 @@ const Users = sequelize.define('users', {
         type: Sequelize.STRING(20), 
     }, 
     password: {
-        type: Sequelize.STRING(20), 
+        type: Sequelize.STRING(255), 
     }, 
     email: {
         type: Sequelize.STRING(20),

@@ -6,7 +6,7 @@ router.get('/', (req, res) =>{
         error: null,
         data: {
             title: 'mi ruta protegida',
-            users: req.users
+            users: req.user
         }
     })
 })

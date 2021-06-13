@@ -21,11 +21,11 @@ const Terminal = sequelize.define('terminal', {
     timestamps: false,
     freezeTableName: true
 });
-
+/*
 Terminal.hasMany(Gestor_buses, {foreignkey: 'id_terminal', sourceKey: 'id'});
 Gestor_buses.belongsTo(Terminal, {foreignkey: 'id_terminal', sourceKey: 'id'});
 
 Terminal.hasMany(Chofer, {foreignkey: 'id_terminal', sourceKey: 'id'});
 Chofer.belongsTo(Terminal, {foreignkey: 'id_terminal', sourceKey: 'id'}); 
-
+*/
 export default Terminal;

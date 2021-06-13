@@ -1,26 +1,31 @@
 import { async } from 'regenerator-runtime';
 import Users from '../models/Users';
 import bcrypt from 'bcrypt';
-import jwt from 'js-tokens';
-import Joi from  '@hapi/joi';
 
+import jwt from 'jsonwebtoken';
+import Joi from  '@hapi/joi';
+import { response } from 'express';
+const saltos = 10;
 const schemaLogin = Joi.object({
-    password: Joi.string().min(6).max(255).required().email(),
+    password: Joi.string().min(6).max(255).required(),
     email: Joi.string().min(6).max(255).required()
 })
 
 export async function login(req,res){
     const {error} = schemaLogin.validate(req.body);
     if (error) return res.status(400).json({error: error.details[0].message})
+    const user = await Users.findOne({
+        where:{
+            email: req.body.email
+        }
+    });
+    if(!user) return res.status(400).json({error: true, message: 'email no encontrado'});
 
-    const Users = await Users.findAll({email: req.body.email})
-    if(!users) return res.status(400).json({error: true, message: 'email no encontrado'});
-
-    const passValida = await bcrypt.compare(req.body.password, users.password)
+    const passValida = await bcrypt.compare(req.body.password, user.password)
     if(!passValida) return res.status(400).json({error: true, mensaje: 'contraseña mal'});
 
     const token = jwt.sign({
-        nombre: users.nombre,
+        nombre: user.nombre,
         id: user.id
     }, process.env.TOKEN_SECRET)
     
@@ -44,7 +49,10 @@ export async function getUsers(req, res) {
 
 export async function createUsers(req, res) {
     
-    const {nombre,password,email} = req.body;
+    const {nombre,email} = req.body;
+    let password=req.body.password;
+    password = await bcrypt.hash(password, saltos)
+  //  return res.json({passwordhash})
     try {
         let newUsers = await Users.create({
             nombre,
@@ -55,8 +63,6 @@ export async function createUsers(req, res) {
             fields: ['nombre','password','email']
         });
         
-        /*const saltos = await bcrypt.getSalt(10);
-        const contraseña = await bcrypt.hash(req.body.contraseña, saltos)*/
         
         if (newUsers) {
             return res.json({
@@ -71,4 +77,53 @@ export async function createUsers(req, res) {
         });
     }
 
+}
+
+export async function getoneUsers(req, res){
+    const { id } = req.params; 
+    const users = await Users.findOne({
+        where: {
+            id: id
+        }
+    });
+    res.json(users);
+};
+
+export async function deleteUsers(req, res){
+    const { id } = req.params;
+    const deleteRowCount =  await Users.destroy({
+        where: {
+            id
+        }
+    });
+    res.json({
+        message: 'Usuario Eliminado Correctamente',
+        count: deleteRowCount
+    });
+}
+
+export async function updateUsers(req, res){
+    const { id } = req.params;
+    const {nombre,password,email} = req.body;
+
+    const users = await Users.findAll({
+        attributes: ['nombre','password','email'],
+        where: {
+            id
+        }
+    });
+
+    if(users.length > 0){
+        users.forEach(async boleto => {
+            await users.update({
+                nombre: nombre,
+                password: password,
+                email: email
+            });
+        })
+    }
+    return res.json({
+        message: 'Usuario Actualizado Correctamente',
+        data: users
+    })
 }

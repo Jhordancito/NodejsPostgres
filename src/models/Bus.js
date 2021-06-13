@@ -9,13 +9,13 @@ const Bus = sequelize.define('bus', {
         type: Sequelize.INTEGER,
     },
     ruta: {
-        type: Sequelize.TEXT,
+        type: Sequelize.STRING(20),
     }, 
     id_chofer: {
         type: Sequelize.INTEGER,
     },
     placa: {
-        type: Sequelize.TEXT,
+        type: Sequelize.STRING(20),
     },
     chasis: {
         type: Sequelize.INTEGER,
@@ -25,11 +25,11 @@ const Bus = sequelize.define('bus', {
     timestamps: false,
     freezeTableName: true
 });
-
+/*
 Bus.hasMany(Capacidad, {foreignkey: 'id_bus', sourceKey: 'id'});
 Capacidad.belongsTo(Bus, {foreignkey: 'id_bus', sourceKey: 'id'});
 
 Bus.hasMany(Boleto, {foreignkey: 'id_bus', sourceKey: 'id'});
 Boleto.belongsTo(Bus, {foreignkey: 'id_bus', sourceKey: 'id'});
-
+*/
 export default Bus;

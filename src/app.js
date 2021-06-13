@@ -36,7 +36,7 @@ app.use('/api/gestor_buses', gestor_busesRoutes);
 app.use('/api/pasajeros', pasajerosRoutes);
 app.use('/api/terminal', terminalRoutes);
 app.use('/api/users', usersRoutes);
-app.use('/admin',validaToken, admin)
+app.use('/api/admin',validaToken, admin)
 
 
 export default app;

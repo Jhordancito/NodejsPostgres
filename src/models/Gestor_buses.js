@@ -31,7 +31,7 @@ const Gestor_buses = sequelize.define('gestor_buses', {
     timestamps: false,
     freezeTableName: true,
 });
-
+/*
 Gestor_buses.hasMany(Bus, {foreignkey: 'id_buses', sourceKey: 'id'});
 Bus.belongsTo(Gestor_buses, {foreignkey: 'id_buses', sourceKey: 'id'});
 
@@ -40,5 +40,5 @@ Boleto.belongsTo(Gestor_buses, {foreignkey:'id_buses', sourceKey: 'id'});
 
 Gestor_buses.hasMany(Capacidad, {foreignkey:'id_buses',  sourceKey: 'id'});
 Capacidad.belongsTo(Gestor_buses, {foreignkey:'id_buses',  sourceKey: 'id'});
-
+*/
 export default Gestor_buses;
