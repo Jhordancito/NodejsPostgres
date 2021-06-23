@@ -1,0 +1,49 @@
+<app-header></app-header>
+
+    <h3>Lista de Boletos</h3><br>
+
+    <button type="button" class="btn btn-primary (click)="nuevoBoleto()>Nuevo Boleto</button>
+
+    <table class="table table-hover table-sm">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Bioseguridad</th>
+            <th scope="col">Precio</th>
+            <th scope="col">ID_Bus</th>
+            <th scope="col">Origen</th>
+            <th scope="col">Destino</th>
+            <th scope="col">Hrs_Salida</th>
+            <th scope="col">Fecha_Salida</th>
+            <th scope="col">Ubicación</th>
+            <th scope="col">ID_buses</th>
+            <th scope="col">Nro_Asiento</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let boleto of boletos" (click)="editarBoleto(boleto.id)">
+            <th scope="row">{{boleto.id}}</th>
+            <td>{{ boleto.nombre }}</td>
+            <td>{{ boleto.apellido }}</td>
+            <td>{{ boleto.bioseguridad }}</td>
+            <td>{{ boleto.precio }}</td>
+            <td>{{ boleto.id_bus }}</td>
+            <td>{{ boleto.origen }}</td>
+            <td>{{boleto.destino }}</td>
+            <td>{{ boleto.hrs_salida }}</td>
+            <td>{{ boleto.fecha_salida }}</td>
+            <td>{{ boleto.ubicacion }}</td>
+            <td>{{ boleto.id_buses }}</td>
+            <td>{{ boleto.nro_asiento }}</td>
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+        </tr>
+        </tbody>
+    </table>
+<app-footer></app-footer>
