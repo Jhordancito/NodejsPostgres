@@ -5,7 +5,8 @@ export async function getTerminal(req, res) {
     try {
         const terminal = await Terminal.findAll()
     
-        res.json({data: terminal});
+        res.json({mensaje: 'Recuperado Exitosamente',
+        data: terminal});
     } catch (e) {
         console.log(e);
     }

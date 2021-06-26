@@ -19,10 +19,10 @@ export async function login(req,res){
             email: req.body.email
         }
     });
-    if(!user) return res.status(400).json({error: true, message: 'email no encontrado'});
+    if(!user) return res.status(400).json({error: true, campo:'email', message: 'email no encontrado'});
 
     const passValida = await bcrypt.compare(req.body.password, user.password)
-    if(!passValida) return res.status(400).json({error: true, mensaje: 'contraseña mal'});
+    if(!passValida) return res.status(400).json({error: true, campo:'password', message: 'contraseña mal'});
 
     const token = jwt.sign({
         nombre: user.nombre,
@@ -30,6 +30,7 @@ export async function login(req,res){
     }, process.env.TOKEN_SECRET)
     
     res.json({
+        status: "ok",
         error: null,
         message: 'Bienvenido',
         token: token

@@ -1,4 +1,6 @@
 import express from 'express'; //Framework para el servidor
+import cors from 'cors';
+
 import morgan from 'morgan';
 import json from 'body-parser';
 import { createRequire } from 'module'
@@ -22,6 +24,7 @@ import admin from './routes/admin';
 const app = express(); // Inicializamos
 
 //middlewares
+app.use(cors());
 app.use(morgan('start'));
 app.use(json.json());
 

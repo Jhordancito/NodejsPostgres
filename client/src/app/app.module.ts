@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { AngularMaterialModule } from './material.module';
 
 import { AppRoutingModule,routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,7 +10,8 @@ import { FooterComponent } from './plantillas/footer/footer.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http';
 import { NuevoComponent } from './components/nuevo/nuevo.component';
-import { EditarComponent } from './components/editar/editar.component'
+import { EditarComponent } from './components/editar/editar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 
 @NgModule({
@@ -26,7 +28,9 @@ import { EditarComponent } from './components/editar/editar.component'
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    AngularMaterialModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

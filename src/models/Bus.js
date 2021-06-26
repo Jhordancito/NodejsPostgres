@@ -25,6 +25,7 @@ const Bus = sequelize.define('bus', {
     timestamps: false,
     freezeTableName: true
 });
+// Bus.belongsTo(Chofer, {foreignkey: 'id_chofer', sourceKey: 'id'});
 /*
 Bus.hasMany(Capacidad, {foreignkey: 'id_bus', sourceKey: 'id'});
 Capacidad.belongsTo(Bus, {foreignkey: 'id_bus', sourceKey: 'id'});
