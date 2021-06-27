@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
+import { DashboardComponent} from './components/dashboard/dashboard.component';
 import { BoletosComponent } from './components/boletos/boletos.component';
 import { BusComponent } from './components/bus/bus.component';
 import { ChoferComponent } from './components/chofer/chofer.component';
@@ -10,10 +11,12 @@ import { TerminalesComponent } from './components/terminales/terminales.componen
 import { NuevoComponent } from './components/nuevo/nuevo.component';
 import { EditarComponent } from './components/editar/editar.component';
 
+
 const routes: Routes = [
   
   {path: '' , redirectTo:'login', pathMatch:'full'},
   {path: 'login', component:LoginComponent },
+  {path: 'dashboard', component:DashboardComponent},
   {path: 'boletos', component:BoletosComponent },
   {path: 'bus', component:BusComponent },
   {path: 'chofer', component:ChoferComponent },
