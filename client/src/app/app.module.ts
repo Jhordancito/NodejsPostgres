@@ -6,6 +6,7 @@ import { AppRoutingModule,routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './plantillas/header/header.component';
 import { FooterComponent } from './plantillas/footer/footer.component';
+import {DashboardComponent} from './components/dashboard/dashboard.component';
 
 import { ReactiveFormsModule, FormsModule } from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http';
@@ -19,6 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
     AppComponent,
     HeaderComponent,
     FooterComponent,
+    DashboardComponent,
     routingComponents,
     NuevoComponent,
     EditarComponent

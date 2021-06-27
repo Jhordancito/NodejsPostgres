@@ -2,7 +2,7 @@ import { BoletoService } from './../../services/api.service';
 import { FormControl, FormGroup, Validator} from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
-import { BoletosI } from '../../models/boletos';
+import { BoletoI } from '../../models/boleto.interface';
 
 
 
@@ -15,7 +15,7 @@ export class EditarComponent implements OnInit {
 
   constructor(private activerouter:ActivatedRoute, private router:Router, private boleto:BoletoService) { }
 
-  datosBoleto:BoletosI;
+  datosBoleto:BoletoI;
   editarForm = new FormGroup({
     nombre: new FormControl(''),
     apellido: new FormControl(''),

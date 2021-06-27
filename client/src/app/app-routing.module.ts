@@ -13,9 +13,13 @@ import { EditarComponent } from './components/editar/editar.component';
 
 
 const routes: Routes = [
-  
   {path: '' , redirectTo:'login', pathMatch:'full'},
   {path: 'login', component:LoginComponent },
+
+  {path: 'sistema',
+  component:DashboardComponent,
+  children:[
+    
   {path: 'dashboard', component:DashboardComponent},
   {path: 'boletos', component:BoletosComponent },
   {path: 'bus', component:BusComponent },
@@ -25,6 +29,13 @@ const routes: Routes = [
   {path: 'terminales', component:TerminalesComponent },
   {path: 'nuevo', component:NuevoComponent},
   {path: 'editar/:id', component:EditarComponent}
+
+  ]
+
+},
+
+  
+  
 ];
  
 @NgModule({

@@ -33,7 +33,11 @@ export class TerminalesComponent implements OnInit {
       });
   }
 
-  constructor( private api:BoletoService,private routes:Router) { }
+  constructor( private api:BoletoService,private routes:Router) { 
+    const token = localStorage.getItem('token');
+    if(!token)
+      this.routes.navigate(['login']);
+  }
 
   ngOnInit(): void {
     this.cargarDatos();

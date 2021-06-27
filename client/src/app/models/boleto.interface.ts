@@ -1,6 +1,6 @@
 import { Time } from "@angular/common";
 
-export interface BoletosI{
+export interface BoletoI{
     id:number;
     nombre:string;   
     apellido: string;  
@@ -14,6 +14,8 @@ export interface BoletosI{
     ubicacion: string; 
     id_buses: number; 
     nro_asiento: number;
-    
+    nombre_bus: string;
+    tipo_bus: string;
+    placa: string;
 
 }

@@ -1,11 +1,12 @@
 import { async } from 'regenerator-runtime';
 import Pasajeros from '../models/Pasajeros';
+import { sequelize } from '../database/database';
 
 export async function getPasajeros(req, res) {
     try {
-        const pasajeros = await Pasajeros.findAll()
-    
-        res.json({data: pasajeros});
+        const bus=  await sequelize.query("select p.cedula, p.fecha_nacimiento, p.genero, p.telefono, p.direccion, concat(b.nombre,' ',b.apellido) as nombre, p.id_boleto  from pasajeros p inner join boleto b on b.id=p.id_boleto",{type: 'SELECT'});
+        //const pasajeros = await Pasajeros.findAll()
+        res.json({data: bus});
     } catch (e) {
         console.log(e);
     }

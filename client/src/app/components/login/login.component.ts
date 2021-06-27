@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
           let dataresponse:ResponseI=data;
           if(dataresponse.status=="ok"){
             localStorage.setItem('token',data.token.toString());
-            this.routes.navigate(['dashboard']);
+            this.routes.navigate(['sistema/bus']);
           }
         },(err)=>{
           console.log(err.error);

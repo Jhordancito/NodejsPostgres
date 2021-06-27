@@ -4,8 +4,9 @@ import Sequelize from 'sequelize';
 export const sequelize = new Sequelize(
     'bus',
     'postgres',
-    'cristiano7',
+    '123456',
     {
+        port: 5433,
         host: 'localhost',
         dialect: 'postgres',
         pool:{

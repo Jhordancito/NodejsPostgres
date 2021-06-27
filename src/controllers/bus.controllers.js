@@ -1,10 +1,15 @@
 import { async } from 'regenerator-runtime';
 import Bus from '../models/Bus';
+//import { QueryTypes } from 'sequelize';
+
+import { sequelize } from '../database/database';
+//import { QueryTypes } from 'sequelize/types';
 
 export async function getBus(req, res) {
     try {
-        const bus = await Bus.findAll()
-    
+        //const bus = await Bus.findAll()
+        
+        const bus=  await sequelize.query('select b.id, b.ruta, b.placa, b.chasis, b.id_chofer, b.id_buses, concat(c.nombre,c.apellido) as nombre_chofer , gb.nombre_bus from bus b inner join chofer c on c.id=b.id_chofer inner join gestor_buses gb on gb.id=b.id_buses',{type: 'SELECT'});
         res.json({data: bus});
     } catch (e) {
         console.log(e);

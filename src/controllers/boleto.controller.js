@@ -1,9 +1,11 @@
 import { async } from 'regenerator-runtime';
 import Boleto from '../models/Boleto';
+import { sequelize } from '../database/database';
 
 export async function getBoleto(req, res) {
     try {
-        const boleto = await Boleto.findAll()
+        const boleto=  await sequelize.query('select b.id, b.nombre, b.apellido, b.bioseguridad, b.precio, b.origen, b.destino, b.hrs_salida, b.fecha_salida, b.ubicacion, b.nro_asiento, b.id_buses, b.id_bus, bs.placa as placa , gb.nombre_bus, gb.tipo_bus from boleto b inner join bus bs on bs.id=b.id_bus inner join gestor_buses gb on gb.id=b.id_buses',{type: 'SELECT'});
+        //const boleto = await Boleto.findAll()
     
         res.json({data: boleto});
     } catch (e) {
