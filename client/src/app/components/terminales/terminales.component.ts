@@ -3,6 +3,7 @@ import {TerminalI} from '../../models/terminal.interface';
 import {MatTableDataSource} from '@angular/material/table';
 import {  BoletoService} from '../../services/api.service';
 
+
 import {Router} from '@angular/router';
 
 
@@ -17,7 +18,7 @@ export class TerminalesComponent implements OnInit {
   dataSource;
 
 
-  displayedColumns: string[] = ['id', 'nombre_terminal', 'administrador', 'direccion','telefono'];
+  displayedColumns: string[] = ['id', 'nombre_terminal', 'administrador', 'direccion','telefono','actions'];
   
 
 
@@ -46,6 +47,13 @@ export class TerminalesComponent implements OnInit {
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  editarterminal(id){
+    this.routes.navigate(['sistema/terminales/editarterminal/', id]);
+  }
+  nuevaterminal(){
+    this.routes.navigate(['sistema/terminales/nuevaterminal/'])
   }
 
 }

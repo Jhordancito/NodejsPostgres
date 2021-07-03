@@ -16,7 +16,7 @@ export class PasajerosComponent implements OnInit {
   dataSource;
 
 
-  displayedColumns: string[] = ['nombre', 'cedula', 'fecha_nacimiento','genero','telefono','direccion','id_boleto'];
+  displayedColumns: string[] = ['nombre', 'cedula', 'fecha_nacimiento','genero','telefono','direccion','id_boleto','actions'];
   
 
 
@@ -45,6 +45,9 @@ export class PasajerosComponent implements OnInit {
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+  editarterminal(cedula){
+    console.log(cedula);
   }
 
 }

@@ -15,7 +15,7 @@ export class BoletosComponent implements OnInit {
 
   dataSource;
 
-  displayedColumns: string[] = ['id','nombre','apellido','bioseguridad','precio','origen','destino','hrs_salida','fecha_salida','ubicacion','nro_asiento','tipo_bus','nombre_bus','placa'];
+  displayedColumns: string[] = ['id','nombre','apellido','bioseguridad','precio','origen','destino','hrs_salida','fecha_salida','ubicacion','nro_asiento','tipo_bus','nombre_bus','placa', 'actions'];
 
   cargarDatos(){
     this.api.getAllBoletos().subscribe((data)=>
@@ -42,6 +42,8 @@ export class BoletosComponent implements OnInit {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-
+  editarboleto(id){
+    console.log(id);
+  }
 }
 

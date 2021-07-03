@@ -15,7 +15,7 @@ export class ChoferComponent implements OnInit {
 
   dataSource;
 
-  displayedColumns: string[] = ['id', 'nombre','apellido','genero','tipo_sangre', 'direccion','telefono','id_terminal'];
+  displayedColumns: string[] = ['id', 'nombre','apellido','genero','tipo_sangre', 'direccion','telefono','id_terminal', 'actions'];
 
   cargarDatos(){
     this.api.getAllChofer().subscribe((data)=>
@@ -41,6 +41,9 @@ export class ChoferComponent implements OnInit {
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+  editarchofer(id){
+    console.log(id);
   }
 
 }

@@ -1,3 +1,4 @@
+import { NuevaterminalComponent } from './components/terminales/nuevaterminal/nuevaterminal.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
@@ -8,8 +9,7 @@ import { ChoferComponent } from './components/chofer/chofer.component';
 import { GestorBusesComponent } from './components/gestor-buses/gestor-buses.component';
 import { PasajerosComponent } from './components/pasajeros/pasajeros.component';
 import { TerminalesComponent } from './components/terminales/terminales.component';
-import { NuevoComponent } from './components/nuevo/nuevo.component';
-import { EditarComponent } from './components/editar/editar.component';
+import { EditarterminalComponent } from './components/terminales/editarterminal/editarterminal.component';
 
 
 const routes: Routes = [
@@ -27,8 +27,8 @@ const routes: Routes = [
   {path: 'gestor-buses', component:GestorBusesComponent },
   {path: 'pasajeros', component:PasajerosComponent },
   {path: 'terminales', component:TerminalesComponent },
-  {path: 'nuevo', component:NuevoComponent},
-  {path: 'editar/:id', component:EditarComponent}
+  {path: 'terminales/nuevaterminal',component:NuevaterminalComponent},
+  {path: 'terminales/editarterminal/:id',component:EditarterminalComponent}
 
   ]
 
@@ -43,4 +43,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents = [LoginComponent, BoletosComponent, BusComponent, ChoferComponent, GestorBusesComponent, PasajerosComponent, TerminalesComponent]
+export const routingComponents = [LoginComponent, BoletosComponent, BusComponent, ChoferComponent, GestorBusesComponent, PasajerosComponent, TerminalesComponent, EditarterminalComponent]

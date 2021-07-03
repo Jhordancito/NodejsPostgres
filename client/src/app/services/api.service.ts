@@ -32,11 +32,6 @@ export class BoletoService {
     
   }
 
-  // getAllBoletos(page:number):Observable<BoletoI>{
-  //   let direccion = this.url + "boleto/";
-  //   return this.http.get<BoletoI>(direccion);
-  // }
-
   getSingleBoletos(id):Observable<BoletoI>{
     let direccion = this.url + "boleto/" + id;
     return this.http.get<BoletoI>(direccion);
@@ -46,6 +41,14 @@ export class BoletoService {
   getAllTerminal():Observable<TerminalRI>{
     let direccion =this.url+"terminal";
     return this.http.get<TerminalRI>(direccion);
+  }
+  getSingleTerminal(id):Observable<TerminalRI>{
+    let direccion =this.url+"terminal/" + id;
+    return this.http.get<TerminalRI>(direccion);
+  }
+  putTerminal(form:TerminalI):Observable<TerminalRI>{
+    let direccion = this.url + "terminal";
+    return this.http.put<TerminalRI>(direccion,form);
   }
   getAllChofer():Observable<ChoferRI>{
     let direccion =this.url+"chofer";

@@ -14,7 +14,7 @@ export class BusComponent implements OnInit {
 
   dataSource;
 
-  displayedColumns: string[] = ['id', 'nombre_bus','placa','chasis','nombre_chofer','ruta'];
+  displayedColumns: string[] = ['id', 'nombre_bus','placa','chasis','nombre_chofer','ruta','actions'];
 
   cargarDatos(){
     this.api.getAllBus().subscribe((data)=>
@@ -41,6 +41,9 @@ export class BusComponent implements OnInit {
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+  editarbus(id){
+    console.log(id);
   }
 
 }

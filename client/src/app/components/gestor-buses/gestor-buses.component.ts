@@ -16,7 +16,7 @@ export class GestorBusesComponent implements OnInit {
 
   dataSource;
 
-  displayedColumns: string[] = ['id', 'tipo_bus','nombre_bus','fecha','modelo', 'color','capacidad','id_terminal'];
+  displayedColumns: string[] = ['id', 'tipo_bus','nombre_bus','fecha','modelo', 'color','capacidad','id_terminal', 'actions'];
 
   cargarDatos(){
     this.api.getAllGestorBus().subscribe((data)=>
@@ -42,6 +42,9 @@ export class GestorBusesComponent implements OnInit {
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+  editargestor_bus(id){
+    console.log(id);
   }
 
 }

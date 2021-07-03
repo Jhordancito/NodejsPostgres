@@ -1,0 +1,27 @@
+<mat-card-header>
+    <mat-card-title>
+        Listado de Terminales
+    </mat-card-title>
+  </mat-card-header>
+<div class="container">
+    <form [formGroup]="editarForm" (ngSubmit)="postForm(editarForm.value)">
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Nombre Terminal</label>
+            <input type="text" class="form-control" formControlName="nombre_terminal">
+        </div>
+        <div class="col">
+            <label for="exampleFormControlInput1">Administrador</label>
+            <input type="text" class="form-control" formControlName="administrador">
+        </div>
+        <div class="col">
+            <label for="exampleFormControlInput1">Dirección</label>
+            <input type="text" class="form-control" formControlName="direccion">
+        </div>
+        <div class="col">
+            <label for="exampleFormControlInput1">telefono</label>
+            <input type="text" class="form-control" formControlName="telefono">
+        </div>
+        <br><br>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+    </form>
+</div>
