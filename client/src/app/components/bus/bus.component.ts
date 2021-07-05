@@ -43,7 +43,16 @@ export class BusComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
   editarbus(id){
-    console.log(id);
+    this.routes.navigate(['sistema/bus/editarbus/', id]);
+  }
+  nuevabus(){
+    this.routes.navigate(['sistema/bus/nuevabus/'])
+  }
+  eliminar(){
+    this.api.deleteBus(this.datos).subscribe(data =>{
+      console.log(data);
+    })
   }
 
 }
+

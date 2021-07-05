@@ -43,7 +43,15 @@ export class ChoferComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
   editarchofer(id){
-    console.log(id);
+    this.routes.navigate(['sistema/chofer/editarchofer/', id]);
+  }
+  nuevochofer(){
+    this.routes.navigate(['sistema/chofer/nuevochofer/'])
+  }
+  eliminar(){
+    this.api.deleteterminal(this.datos).subscribe(data =>{
+      console.log(data);
+    })
   }
 
 }

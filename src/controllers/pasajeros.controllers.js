@@ -4,9 +4,9 @@ import { sequelize } from '../database/database';
 
 export async function getPasajeros(req, res) {
     try {
-        const bus=  await sequelize.query("select p.cedula, p.fecha_nacimiento, p.genero, p.telefono, p.direccion, concat(b.nombre,' ',b.apellido) as nombre, p.id_boleto  from pasajeros p inner join boleto b on b.id=p.id_boleto",{type: 'SELECT'});
+        const pasajeros=  await sequelize.query("select p.cedula, p.fecha_nacimiento, p.genero, p.telefono, p.direccion, concat(b.nombre,' ',b.apellido) as nombre, p.id_boleto  from pasajeros p inner join boleto b on b.id=p.id_boleto",{type: 'SELECT'});
         //const pasajeros = await Pasajeros.findAll()
-        res.json({data: bus});
+        res.json({data: pasajeros});
     } catch (e) {
         console.log(e);
     }
@@ -21,10 +21,10 @@ export async function createPasajeros(req, res) {
             genero,
             telefono,
             direccion,
-            id_boleto
+            id_boleto,
 
         }, {
-            fields: ['cedula', 'fecha_nacimiento', 'genero', 'telefono', 'direccion' ,'id_boleto']
+            fields: ['cedula', 'fecha_nacimiento', 'genero', 'telefono', 'direccion' , 'id_boleto']
         });
 
         if (newPasajeros) {
@@ -54,7 +54,7 @@ export async function getonePasajeros(req, res){
 
 export async function deletePasajeros(req, res){
     const { cedula } = req.params;
-    const deleteRowCount =  await Terminal.destroy({
+    const deleteRowCount =  await Pasajeros.destroy({
         where: {
             cedula
         }
@@ -65,31 +65,31 @@ export async function deletePasajeros(req, res){
     });
 }
 
-export async function updatePasajero(req, res){
+export async function updatePasajeros(req, res){
     const { cedula } = req.params;
     const {fecha_nacimiento, genero,telefono,direccion,id_boleto} = req.body;
 
-    const terminal = await terminal.findAll({
-        attributes: ['cedula' , 'fecha_nacimiento', 'genero','telefono','direccion','id_boleto'],
+    const pasajeros = await Pasajeros.findAll({
+        attributes: ['fecha_nacimiento', 'genero','telefono','direccion','id_boleto','cedula'],
         where: {
             cedula
         }
     });
 
     if(pasajeros.length > 0){
-        pasajeros.forEach(async boleto => {
+        pasajeros.forEach(async pasajeros => {
             await pasajeros.update({
-                cedula,
-                fecha_nacimiento, 
-                genero,
-                telefono,
-                direccion,
-                id_boleto
+                cedula: cedula,
+                fecha_nacimiento: fecha_nacimiento, 
+                genero: genero,
+                telefono: telefono,
+                direccion: direccion,
+                id_boleto: id_boleto
             });
         })
     }
     return res.json({
-        message: 'Pasaero Actualizado Correctamente',
+        message: 'Pasajero Actualizado Correctamente',
         data: pasajeros
     })
 }

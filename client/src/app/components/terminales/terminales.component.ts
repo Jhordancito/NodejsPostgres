@@ -1,5 +1,5 @@
+import { TerminalI } from 'src/app/models/terminal.interface';
 import { Component, OnInit } from '@angular/core';
-import {TerminalI} from '../../models/terminal.interface';
 import {MatTableDataSource} from '@angular/material/table';
 import {  BoletoService} from '../../services/api.service';
 
@@ -54,6 +54,11 @@ export class TerminalesComponent implements OnInit {
   }
   nuevaterminal(){
     this.routes.navigate(['sistema/terminales/nuevaterminal/'])
+  }
+  eliminar(){
+    this.api.deleteterminal(this.datos).subscribe(data =>{
+      console.log(data);
+    })
   }
 
 }

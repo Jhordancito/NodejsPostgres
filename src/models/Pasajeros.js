@@ -3,7 +3,7 @@ import {sequelize} from '../database/database';
 
 const Pasajeros = sequelize.define('pasajeros', {
     cedula: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.TEXT,
         primaryKey: true
     },
     fecha_nacimiento: {

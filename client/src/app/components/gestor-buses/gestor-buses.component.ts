@@ -43,8 +43,18 @@ export class GestorBusesComponent implements OnInit {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-  editargestor_bus(id){
-    console.log(id);
+  editarGestorBus(id){
+    this.routes.navigate(['sistema/gestor-buses/editargestor-buses/',id])
+  }
+  nuevoGestorBus(){
+    this.routes.navigate(['sistema/gestor-busess/nuevogestor-buses/'])
+  }
+  eliminar(){
+    this.api.deleteterminal(this.datos).subscribe(data =>{
+      console.log(data);
+    })
   }
 
 }
+
+

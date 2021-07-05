@@ -1,0 +1,29 @@
+  
+        Editar  Pasajeros
+   
+<div class="container">
+    <form [formGroup]="editarpForm" (ngSubmit)="postForm(editarpForm.value)">
+        <div class="col">
+            <label for="exampleFormControlInput1">Carnet de Identidad</label>
+            <input type="text" class="form-control" formControlName="cedula">
+        </div>
+        <div class="col">
+            <label for="exampleFormControlInput1">Fecha Nacimiento</label>
+            <input type="text" class="form-control" formControlName="fecha_nacimiento">
+        </div>
+        <div class="col">
+            <label for="exampleFormControlInput1">Genero</label>
+            <input type="text" class="form-control" formControlName="genero">
+        </div>
+        <div class="col">
+            <label for="exampleFormControlInput1">Telefono</label>
+            <input type="text" class="form-control" formControlName="telefono">
+        </div>
+        <div class="col">
+            <label for="exampleFormControlInput1">Direccion</label>
+            <input type="text" class="form-control" formControlName="direccion">
+        </div>
+        <br><br>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+    </form>
+</div>

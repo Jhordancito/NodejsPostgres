@@ -1,0 +1,28 @@
+<mat-card-header>
+    <mat-card-title>
+        Editar  BUS
+    </mat-card-title>
+  </mat-card-header>
+<div class="container">
+    <form [formGroup]="editarForm" (ngSubmit)="postForm(editarForm.value)">
+        <div class="form-group">
+            <label for="exampleFormControlInput1">No</label>
+            <input type="text" class="form-control" formControlName="id">
+        </div>
+        <div class="col">
+            <label for="exampleFormControlInput1">Ruta</label>
+            <input type="text" class="form-control" formControlName="ruta">
+        </div>
+        <div class="col">
+            <label for="exampleFormControlInput1">Placa</label>
+            <input type="text" class="form-control" formControlName="placa">
+        </div>
+        <div class="col">
+            <label for="exampleFormControlInput1">Chasis</label>
+            <input type="text" class="form-control" formControlName="chasis">
+        </div>
+        <br><br>
+        <button mat-raised-button color="primary" type="submit">Guardar</button>
+        <a mat-button href="sistema/bus" target="_blank">Volver</a>
+    </form>
+</div>

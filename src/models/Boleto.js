@@ -22,10 +22,4 @@ const Boleto = sequelize.define('boleto', {
     freezeTableName: true
 });
 
-Boleto.hasMany(Pasajeros, {foreignkey: 'id_boleto', sourceKey: 'id'});
-Pasajeros.belongsTo(Boleto, {foreignkey: 'id_boleto', sourceKey: 'id'});
-
-Boleto.hasMany(Factura, {foreignkey: 'id_boleto', sourceKey: 'id'});
-Factura.belongsTo(Boleto, {foreignkey: 'id_boleto', sourceKey: 'id'});
-
 export default Boleto;

@@ -69,7 +69,7 @@ export async function updateGestor_buses(req, res){
     const { id } = req.params;
     const {tipo_bus, nombre_bus, fecha, id_terminal, modelo, color, capacidad} = req.body;
 
-    const gestor_buses = await gestor_buses.findAll({
+    const gestor_buses = await Gestor_buses.findAll({
         attributes: ['tipo_bus', 'nombre_bus', 'fecha', 'id_terminal', 'modelo', 'color', 'capacidad'],
         where: {
             id
@@ -77,7 +77,7 @@ export async function updateGestor_buses(req, res){
     });
 
     if(gestor_buses.length > 0){
-        gestor_buses.forEach(async boleto => {
+        gestor_buses.forEach(async gestor_buses => {
             await gestor_buses.update({
                 tipo_bus,
                 nombre_bus,
@@ -85,7 +85,8 @@ export async function updateGestor_buses(req, res){
                 id_terminal,
                 modelo,
                 color,
-                capacidad
+                capacidad,
+                id
             });
         })
     }

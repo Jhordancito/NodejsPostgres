@@ -43,7 +43,17 @@ export class BoletosComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
   editarboleto(id){
-    console.log(id);
+  this.routes.navigate(['sistema/boleto/editarboleto/', id]);
   }
+  nuevoboleto(){
+    this.routes.navigate(['sistema/boleto/nuevoboleto'])
+  }
+  eliminar(){
+    this.api.deleteBus(this.datos).subscribe(data =>{
+      console.log(data);
+    })
+  }
+
 }
+
 

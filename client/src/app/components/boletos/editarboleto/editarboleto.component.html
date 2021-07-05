@@ -1,0 +1,56 @@
+<mat-card-header>
+    <mat-card-title>
+        Editar  Boleto
+    </mat-card-title>
+  </mat-card-header>
+<div class="container">
+    <form [formGroup]="editarForm" (ngSubmit)="postForm(editarForm.value)">
+        <div class="col">
+            <label for="exampleFormControlInput1">Nro</label>
+            <input type="text" class="form-control" formControlName="id">
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Nombre </label>
+            <input type="text" class="form-control" formControlName="nombre">
+        </div>
+        <div class="col">
+            <label for="exampleFormControlInput1">Apellido</label>
+            <input type="text" class="form-control" formControlName="apellido">
+        </div>
+        <div class="col">
+            <label for="exampleFormControlInput1">Bioseguridad</label>
+            <input type="text" class="form-control" formControlName="bioseguridad">
+        </div>
+        <div class="col">
+            <label for="exampleFormControlInput1">Precio</label>
+            <input type="text" class="form-control" formControlName="precio">
+        </div>
+        <div class="col">
+            <label for="exampleFormControlInput1">Origen</label>
+            <input type="text" class="form-control" formControlName="origen">
+        </div>
+        <div class="col">
+            <label for="exampleFormControlInput1">Destino</label>
+            <input type="text" class="form-control" formControlName="destino">
+        </div>
+        <div class="col">
+            <label for="exampleFormControlInput1">Hora de Salida</label>
+            <input type="text" class="form-control" formControlName="hrs_salida">
+        </div>
+        <div class="col">
+            <label for="exampleFormControlInput1">Fecha Salida</label>
+            <input type="text" class="form-control" formControlName="fecha_salida">
+        </div>
+        <div class="col">
+            <label for="exampleFormControlInput1">Ubicacion</label>
+            <input type="text" class="form-control" formControlName="ubicacion">
+        </div>
+        <div class="col">
+            <label for="exampleFormControlInput1">Nro de Asiento</label>
+            <input type="text" class="form-control" formControlName="nro_asiento">
+        </div>
+        <br><br>
+        <button mat-raised-button color="primary" type="submit">Guardar</button>
+        <a mat-button href="sistema/terminales" target="_blank">Volver</a>
+    </form>
+</div>

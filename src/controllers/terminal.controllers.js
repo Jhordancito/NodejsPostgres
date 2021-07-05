@@ -67,7 +67,7 @@ export async function updateTerminal(req, res){
     const { id } = req.params;
     const {nombre_terminal, administrador, direccion, telefono} = req.body;
 
-    const terminal = await terminal.findAll({
+    const terminal = await Terminal.findAll({
         attributes: ['nombre_terminal', 'administrador', 'direccion', 'telefono'],
         where: {
             id
@@ -75,12 +75,12 @@ export async function updateTerminal(req, res){
     });
 
     if(terminal.length > 0){
-        terminal.forEach(async boleto => {
+        terminal.forEach(async terminal => {
             await terminal.update({
                 nombre_terminal,
                 administrador,
                 direccion, 
-                telefonon,
+                telefono,
                 id
             });
         })

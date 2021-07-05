@@ -29,18 +29,16 @@ export class EditarterminalComponent implements OnInit {
     let TerminalI = this.activaterouter.snapshot.paramMap.get('id');
     console.log(TerminalI);
     this.api.getSingleTerminal(TerminalI).subscribe(data =>{
-      console.log(data)
-      this.editarForm.setValue({
-        
-        'nombre_terminal': this.datosTerminal.nombre_terminal,
-        'administrador': this.datosTerminal.administrador,
-        'direccion"': this.datosTerminal.direccion,
-        'telefono': this.datosTerminal.telefono,
-        'id': this.datosTerminal.id,
-        
+      this.datosTerminal=data
+      console.log(this.datosTerminal)
+      this.editarForm.patchValue({
+        nombre_terminal: this.datosTerminal.nombre_terminal,
+        administrador: this.datosTerminal.administrador,
+        direccion: this.datosTerminal.direccion,
+        telefono: this.datosTerminal.telefono,
+        id: this.datosTerminal.id,
       });
-
-       console.log(this.editarForm.value);
+       
     })
   }
 
@@ -51,7 +49,7 @@ export class EditarterminalComponent implements OnInit {
   postForm(form:TerminalI){
 
     this.api.putTerminal(form).subscribe( data =>{
-      console.log(data)
+      console.log(data);
     })
     
   }

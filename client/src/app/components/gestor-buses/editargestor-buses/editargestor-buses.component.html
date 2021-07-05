@@ -1,0 +1,45 @@
+<mat-card-header>
+    <mat-card-title>
+        Editar  Gestor-Buses
+    </mat-card-title>
+  </mat-card-header>
+<div class="container">
+    <form [formGroup]="editarForm" (ngSubmit)="postForm(editarForm.value)">
+        <div class="form-group">
+            <label for="exampleFormControlInput1">NO.</label>
+            <input type="text" class="form-control" formControlName="id">
+        </div>
+        <div class="col">
+            <label for="exampleFormControlInput1">Tipo de Bus</label>
+            <input type="text" class="form-control" formControlName="tipo_bus">
+        </div>
+        <div class="col">
+            <label for="exampleFormControlInput1">Nombre Bus</label>
+            <input type="text" class="form-control" formControlName="nombre_bus">
+        </div>
+        <div class="col">
+            <label for="exampleFormControlInput1">fecha</label>
+            <input type="text" class="form-control" formControlName="fecha">
+        </div>
+        <div class="col">
+            <label for="exampleFormControlInput1">id_terminal</label>
+            <input type="text" class="form-control" formControlName="id_terminal">
+        </div>
+        <div class="col">
+            <label for="exampleFormControlInput1">modelo</label>
+            <input type="text" class="form-control" formControlName="modelo">
+        </div>
+        <div class="col">
+            <label for="exampleFormControlInput1">color</label>
+            <input type="text" class="form-control" formControlName="color">
+        </div>
+        <div class="col">
+            <label for="exampleFormControlInput1">capacidad</label>
+            <input type="text" class="form-control" formControlName="capacidad">
+        </div>
+        <br><br>
+        <button mat-raised-button color="primary" type="submit">Guardar</button>
+        <a mat-button href="sistema/gestor-buses" target="_blank">Volver</a>
+    </form>
+</div>
+
